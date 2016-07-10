@@ -1,0 +1,121 @@
+---
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: AWS Serverless Skeleton
+  description: A skeleton project to easily utilise AWS serverless architecture
+host: execute-api.eu-west-1.amazonaws.com
+basePath: "/"
+schemes:
+  - "https"
+produces:
+  - application/json
+paths:
+  /save:
+    post:
+      summary: An example POST request
+      description: |
+        This will create a save resource with a POST method. Enable Cross
+        Origin Resource Sharing, and set request content to JSON.
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: Save data.
+          in: body
+          description: POST request parameters.
+          schema:
+            $ref: '#/definitions/Empty'
+      x-amazon-apigateway-auth:
+        type: none
+      x-amazon-apigateway-integration:
+        type: aws
+        uri: arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/{LAMBDA_FUNCTION_ARN}/invocations
+        httpMethod: POST
+        responses:
+          "default":
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          "Bad Request: .*":
+            statusCode: "400"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          "Internal Error: .*":
+            statusCode: "500"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+        400:
+          description: "Bad Request"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+          schema:
+            $ref: "#/definitions/Error"
+        500:
+          description: "Internal Error"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+          schema:
+            $ref: "#/definitions/Error"
+    options:
+      summary: CORS support
+      description: |
+        Enable CORS by returning correct headers
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - CORS
+      x-amazon-apigateway-auth:
+        type: none
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          "default":
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'*'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: |
+                {}
+      responses:
+        200:
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Headers:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Origin:
+              type: "string"
+definitions:
+  Empty:
+    type: "object"
+  Error:
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string

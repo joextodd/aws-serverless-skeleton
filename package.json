@@ -1,0 +1,20 @@
+{
+  "name": "aws-serverless-skeleton",
+  "version": "1.0.0",
+  "description": "A skeleton project to easily utilise AWS serverless architecture",
+  "main": "index.js",
+  "dependencies": {
+    "aws-sdk": "^2.3.16"
+  },
+  "devDependencies": {
+  },
+  "scripts": {
+    "deploy": "cd {AWS_IMPORTER_PATH} && ./aws-api-import.sh --update {API_URL} --deploy {API_STAGE} {PROJECT_DIR}.yaml && cd -"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joextodd/aws-serverless-skeleton.git"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,8 @@
+
+{
+  "name": "aws-serverless-skeleton",
+  "description": "",
+  "role": "{LAMBDA_EXECUTION_ROLE}",
+	"defaultEnvironment": "dev",
+  "environment": {}
+}

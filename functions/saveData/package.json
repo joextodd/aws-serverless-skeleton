@@ -1,0 +1,10 @@
+{
+  "name": "saveUser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cd ../../ && apex invoke saveUser < functions/saveUser/event.json && cd functions/saveUser",
+    "deploy": "cd ../../ && apex deploy && cd functions/saveUser"
+  }
+}
