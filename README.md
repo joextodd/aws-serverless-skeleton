@@ -7,6 +7,7 @@ A skeleton project to easily utilise Amazon Web Service's serverless architectur
 - API deployed using aws-apigateway-importer.
 - CORS enabled.
 - Test API with mocha, should and supertest.
+- ES6 linter from airbnb.
 - Run commands with npm scripts.
 
 ## Requirements

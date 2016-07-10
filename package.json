@@ -4,7 +4,9 @@
   "description": "A skeleton project to easily utilise AWS serverless architecture",
   "main": "index.js",
   "dependencies": {
-    "aws-sdk": "^2.3.16"
+    "eslint": "^2.11.0",
+    "aws-sdk": "^2.3.16",
+    "eslint-config-airbnb": "^9.0.1"
   },
   "devDependencies": {
     "mocha": "^2.5.3",
