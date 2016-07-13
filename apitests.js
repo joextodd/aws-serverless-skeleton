@@ -32,4 +32,22 @@ describe('testSuite', function() {
       });
     });
   });
+  /*
+   * Test get ID.
+   */
+  describe('getId', function() {
+    describe('testGetId', function() {
+      it('should return successfully', function(done) {
+        request(baseURL)
+        .get('/get/joebloggs')
+        .end((err, res) => {
+          if (err) {
+            throw err;
+          }
+          res.status.should.be.equal(200);
+          done();
+        });
+      });
+    });
+  });
 });
