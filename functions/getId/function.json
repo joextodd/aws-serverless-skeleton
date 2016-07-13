@@ -1,0 +1,8 @@
+{
+  "name": "getId",
+  "description": "Get ID from cognito",
+  "runtime": "nodejs4.3",
+  "memory": 256,
+  "timeout": 10,
+  "role": "{LAMBDA_EXECUTION_ROLE}"
+}

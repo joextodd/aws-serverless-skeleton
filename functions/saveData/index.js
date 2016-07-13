@@ -10,7 +10,7 @@ exports.handle = function handler(event, context) {
     context.fail('Bad Request: Missing data parameter.');
     return;
   }
-  var params = {
+  const params = {
     TableName : 'users',
     Item: {
        data: event.data,

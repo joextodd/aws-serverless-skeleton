@@ -1,0 +1,10 @@
+{
+  "name": "getId",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cd ../../ && apex invoke getId < functions/getId/event.json && cd functions/getId",
+    "deploy": "cd ../../ && apex deploy && cd functions/getId"
+  }
+}
